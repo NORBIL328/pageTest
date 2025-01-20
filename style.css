@@ -1,0 +1,355 @@
+body {
+    font-family: "Poppin", sans-serif;
+    background-color: #67b2c7;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book {
+    width: 45%;
+    height: 95%;
+    position: center;
+    transition-duration: 1s;
+    perspective: 1500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    display: none;
+}
+
+.cover, .back-cover {
+    background-color: #4173a5;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 0 0 5px rgb(41, 41, 41);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center left;
+}
+
+.cover {
+    position: absolute;
+    z-index: 6;
+    transition: transform 1s;
+}
+
+.cover label {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.back-cover {
+    position: relative;
+    z-index: -1;
+}
+
+.page {
+    position: absolute;
+    background-color: white;
+    width: calc(100% - 10px); /* Cada página ocupa la mitad del libro */
+    height: 100%; /* Se adapta a la altura del libro */
+    border-radius: 0 15px 15px 0;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition-duration: 1.5s;
+}
+
+.page img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 0 0 15px;
+}
+
+.front-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.back-page {
+    transform: rotateY(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    z-index: 1;
+}
+
+.back-page-1 {
+    transform: rotateY(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    z-index: 1;
+}
+
+
+.next, .prev {
+    position: absolute;
+    bottom: 1em;
+    cursor: pointer;
+    font-size: 2em; /* Aumenta el tamaño de la fuente */
+    padding: 0.5em 1em; /* Ajusta el padding para hacer los botones más grandes */
+    background-color: rgba(255, 255, 255, 0.7); /* Color de fondo para hacerlos más visibles */
+    border-radius: 5px; /* Redondea las esquinas del botón */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar el botón */
+    transition: background-color 0.3s ease;
+}
+
+.next:hover, .prev:hover {
+    background-color: rgba(255, 255, 255, 1); /* Efecto de hover para el botón */
+}
+
+.next {
+    right: 1em;
+}
+
+.prev {
+    left: 1em;
+}
+
+#page1 {
+    z-index: 5;
+}
+
+#page2 {
+    z-index: 4;
+}
+
+#page3 {
+    z-index: 3;
+}
+
+#page4 {
+    z-index: 2;
+}
+
+#checkbox-cover:checked ~ .book {
+    transform: translateX(50%);
+}
+
+#checkbox-cover:checked ~ .book .cover {
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+
+#checkbox-cover:checked ~ .book .page {
+    box-shadow: 0 0 3px rgb(99, 98, 98);
+}
+
+#checkbox-back-cover:checked ~ .book {
+    transform: translateX(-50%);
+}
+
+#checkbox-back-cover:checked ~ .book .cover {
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    transform: rotateY(-180deg);
+    z-index: 1;
+}
+
+#checkbox-back-cover:checked ~ .book .page {
+    box-shadow: 0 0 3px rgb(99, 98, 98);
+}
+
+#checkbox-page1:checked ~ .book #page1 {
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+
+#checkbox-page2:checked ~ .book #page2 {
+    transform: rotateY(-180deg);
+    z-index: 3;
+}
+
+#checkbox-page3:checked ~ .book #page3 {
+    transform: rotateY(-180deg);
+    z-index: 4;
+}
+#checkbox-page4:checked ~ .book #page4 {
+    transform: rotateY(-180deg);
+    z-index: 5;
+}
+
+/* Estilo para el contenedor que agrupa los botones */
+.controls-container {
+    position: fixed;
+    top: 20px; /* Ubica los botones en la parte superior */
+    right: 20px; /* Ubica los botones en la esquina derecha */
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    z-index: 10;
+    align-items: center;
+}
+
+/* Estilo para el contenedor que agrupa los botones */
+.controls-container {
+    position: fixed;
+    top: 20px; /* Ubica los botones en la parte superior */
+    right: 20px; /* Ubica los botones en la esquina derecha */
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    z-index: 10;
+    align-items: center;
+    flex-direction: row; /* Asegura que los botones estén alineados horizontalmente */
+}
+
+
+/* Estilo para el botón de música */
+#music-toggle {
+    background-color: transparent;
+    color: white;
+    font-size: 24px; /* Tamaño adecuado para el ícono */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+#music-toggle:hover {
+    background-color: #365e7c;
+}
+
+/* Estilo para los botones de redes sociales */
+.social-buttons {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.social-button {
+    background-color: transparent;
+    color: white;
+    font-size: 24px; /* Tamaño adecuado para el ícono */
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+.social-button:hover {
+    background-color: #2d4373; /* Color al pasar el mouse */
+}
+
+.social-button.instagram {
+    background-color: transparent; /* Sin fondo para Instagram */
+}
+
+.social-button.instagram:hover {
+    background-color: #bc2a8d; /* Color al pasar el mouse */
+}
+
+.social-button.linkedin {
+    background-color: transparent; /* Sin fondo para LinkedIn */
+}
+
+.social-button.linkedin:hover {
+    background-color: #005582; /* Color al pasar el mouse */
+}
+
+
+
+
+
+
+/* Agrega el estilo al botón */
+#close-book {
+    position: absolute;
+    bottom: 0; /* Coloca el botón en la parte inferior */
+    left: 0;
+    width: 100%; /* Se adapta al tamaño del div contenedor */
+    height: 100%; /* Se adapta al tamaño del div contenedor */
+    background: url('bmo1.jpg') no-repeat center center; /* La imagen como fondo */
+    background-size: cover; /* La imagen cubre todo el área del botón */
+    border: none;
+    cursor: pointer; /* Apunta que puede hacer clic */
+}
+
+
+
+/* Modificación para las imágenes en página 1 */
+.front-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.main-image img {
+    width: 100%;
+    height: 65%;
+    border-radius: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-images {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1px;
+}
+
+.secondary-images img {
+    width: calc(33.33%);
+    height: 100;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.back-page {
+    transform: rotateY(180deg);
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    
+    z-index: 1;
+}
+
+
+#subImg1 {
+    height: auto; /* Mantén la proporción original de la imagen */
+    border-radius: 5px; /* Opcional, para esquinas redondeadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Opcional, para sombra */
+    object-fit: cover; /* Ajusta cómo se redimensiona la imagen */
+}
+
+#subImg2 {
+  
+    height: 196px; /* Mantiene la proporción */
+    margin: 5px auto; /* Centra la imagen si es necesario */
+}
+
+#subImg3 {
+    
+    height: 196px; /* Mantiene la proporción */
+    margin: 5px auto; /* Centra la imagen si es necesario */
+}

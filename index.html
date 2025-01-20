@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convocatoria ComSoc</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1cad54f882.js"></script>
+</head>
+<body>
+    <input type="checkbox" id="checkbox-cover">
+    <input type="checkbox" id="checkbox-page1">
+    <input type="checkbox" id="checkbox-page2">
+    <input type="checkbox" id="checkbox-page3">
+    <input type="checkbox" id="checkbox-page4">
+    <input type="checkbox" id="checkbox-back-cover">
+    <div class="book">
+        <div class="cover">
+            <label for="checkbox-cover" class="cover-label">
+                <img src="convocatoria1.jpg" alt="Portada del libro" width="100%" height="100%">
+            </label>
+        </div>
+        <div class="page" id="page1">
+            <div class="front-page">
+                <div class="main-image">
+                    <img src="proyectos.png" alt="Logística">
+                    <div class="secondary-images">
+                        <img src="imagen1.jpg" alt="Imagen Secundaria 1">
+                        <img src="imagen2.jpg" alt="Imagen Secundaria 2">
+                        <img src="imagen3.jpg" alt="Imagen Secundaria 3" width="100%" height="30%">
+                    </div>
+                </div>
+                <label class="next" for="checkbox-page1"><i class="fas fa-chevron-right"></i></label>
+            </div>
+            <div class="back-page">
+                <div class="main-image">
+                    <img src="eventos.png" alt="Eventos">
+                    <div class="secondary-images">
+                        <img src="imagen4.jpeg" alt="Imagen Secundaria 1">
+                        <img src="imagen5.jpeg" alt="Imagen Secundaria 2">
+                        <img src="imagen6.jpg" alt="Imagen Secundaria 3" width="100%" height="30%">
+                    </div>
+                </div>
+                <label class="prev" for="checkbox-page1"><i class="fas fa-chevron-left"></i></label>
+            </div>
+        </div>
+        <div class="page" id="page2">
+            <div class="front-page">
+                <div class="main-image">
+                    <img src="investigacion.png" alt="nvestigacion">
+                    <div class="secondary-images">
+                        <img src="imagen7.jpeg" alt="Imagen Secundaria 1" id="subImg1">
+                        <img src="imagen8.jpeg" alt="Imagen Secundaria 2">
+                        <img src="imagen9.jpeg" alt="Imagen Secundaria 3" width="100%" height="30%">
+                    </div>
+                </div>
+                <label class="next" for="checkbox-page2"><i class="fas fa-chevron-right"></i></label>
+            </div>
+            <div class="back-page">
+                <div class="main-image">
+                    <img src="talentoHumano.png" alt="talentoHumano">
+                    <div class="secondary-images">
+                        <img src="imagen10.jpg" alt="Imagen Secundaria 1">
+                        <img src="imagen11.jpeg" alt="Imagen Secundaria 2">
+                        <img src="imagen12.jpeg" alt="Imagen Secundaria 3" width="100%" height="30%">
+                    </div>
+                </div>
+                <label class="prev" for="checkbox-page2"><i class="fas fa-chevron-left"></i></label>
+            </div>
+        </div>
+        <div class="page" id="page3">
+            <div class="front-page">
+                <div class="main-image">
+                    <img src="marketing.png" alt="marketing">
+                    <div class="secondary-images">
+                        <img src="imagen13.jpg" alt="Imagen Secundaria 1" id="subImg2">
+                        <img src="imagen14.jpeg" alt="Imagen Secundaria 2" id="subImg2">
+                        <img src="imagen15.jpg" alt="Imagen Secundaria 3"  id="subImg3">
+                    </div>
+                </div>
+                <label class="next" for="checkbox-page3"><i class="fas fa-chevron-right"></i></label>
+            </div>
+            <div class="back-page">
+                <div class="main-image">
+                    <img src="relacionesPublicas.png" alt="relacionesPublicas">
+                    <div class="secondary-images">
+                        <img src="imagen16.jpg" alt="Imagen Secundaria 1" id="subImg2">
+                        <img src="imagen17.jpg" alt="Imagen Secundaria 2" id="subImg2">
+                        <img src="imagen18.jpg" alt="Imagen Secundaria 3"  id="subImg3">
+                    </div>
+                </div>
+                <label class="prev" for="checkbox-page3"><i class="fas fa-chevron-left"></i></label>
+            </div>
+        </div>
+
+        <div class="page" id="page4">
+            <div class="front-page">
+                <div class="main-image">
+                    <img src="logistica.png" alt="Logística">
+                    <div class="secondary-images">
+                        <img src="imagen19.jpg" alt="Imagen Secundaria 1" id="subImg2">
+                        <img src="imagen20.png" alt="Imagen Secundaria 2" id="subImg2">
+                        <img src="imagen21.png" alt="Imagen Secundaria 3"  id="subImg3">
+                    </div>
+                </div>
+                <label class="next" for="checkbox-page4"><i class="fas fa-chevron-right"></i></label>
+            </div>
+            <div class="back-page-1">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfA-1o0BOPfzBUEruDjlUErdwsldEABOW7L_hee3iJLQe81SA/viewform?usp=dialog" target="_blank">
+                    <img src="forms1.jpg" alt="Logística">
+                </a>
+                <label class="prev" for="checkbox-page4"><i class="fas fa-chevron-left"></i></label>
+            </div>
+        </div>
+        <div class="back-cover">
+            <label for="checkbox-back-cover" class="cover-label">
+                
+            </label>
+            <button id="close-book"></button>
+        </div>
+    </div>
+
+    <audio id="audio-player" autoplay loop >
+        <source src="musicaFondo.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="controls-container">
+        <button id="music-toggle">
+            <i class="fas fa-music"></i>
+        </button>
+        <div class="social-buttons">
+            <a href="https://www.facebook.com/ieee.comsoc.unmsm" target="_blank" class="social-button facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/ieee.comsoc.unmsm/" target="_blank" class="social-button instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/ieeecomsocunmsm/posts/?feedView=all" target="_blank" class="social-button linkedin">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('close-book').addEventListener('click', () => {
+            document.getElementById('checkbox-page4').checked = false;
+            setTimeout(()=>{
+                document.getElementById('checkbox-page3').checked = false;
+                setTimeout(() => {
+                    document.getElementById('checkbox-page2').checked = false;
+                    setTimeout(() => {
+                        document.getElementById('checkbox-page1').checked = false;
+                        setTimeout(() => {
+                            document.getElementById('checkbox-cover').checked = false;
+                        }, 300);
+                    }, 300);
+                }, 300);
+            },300);
+        });
+
+        const audio = document.getElementById('audio-player');
+        const musicButton = document.getElementById('music-toggle');
+        audio.volume = 0.05;
+        musicButton.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                musicButton.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                audio.pause();
+                musicButton.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
